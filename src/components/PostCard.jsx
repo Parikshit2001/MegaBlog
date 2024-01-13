@@ -24,6 +24,7 @@ function PostCard({$id, title, content, status, myPost=false}) {
     })
     console.log(updatePost);
     setEdit(false);
+
   }
 
   const handleStatusChange = (event) => {
@@ -37,8 +38,8 @@ function PostCard({$id, title, content, status, myPost=false}) {
             <div>
               <h2
               className='text-xl font-bold'
-              >{title}</h2>
-              <p>{content}</p>
+              >{newTitle}</h2>
+              <p>{newContent}</p>
             </div>
             {myPost && <div onClick={() => setEdit(prev => !prev)} className='px-5 flex justify-center items-center hover:bg-slate-500 hover:cursor-pointer rounded-full'>
                 <MdOutlineEdit

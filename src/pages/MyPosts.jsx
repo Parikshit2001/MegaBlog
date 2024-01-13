@@ -14,11 +14,7 @@ function MyPosts() {
           setPosts(posts.documents)
       }
     })
-  }, [posts])
-
-  const handleDelete = () => {
-    console.log("Deleting Item");
-  }
+  }, [])
 
   return (
     <div className='w-full py-8'>
