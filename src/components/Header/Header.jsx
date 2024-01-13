@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Logo, LogoutBtn} from '../index'
 import { Link } from 'react-router-dom'
 import {useSelector} from 'react-redux'
@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 function Header() {
   const authStatus = useSelector((state) => state.auth.status)
   const navigate = useNavigate()
+  const [selectedItem, setSelectedItem] = useState(null);
 
   const navItems = [
     {
@@ -41,6 +42,10 @@ function Header() {
   },
   ]
 
+  const handleItemClick = (item, index) => {
+    setSelectedItem(index);
+    navigate(item.slug);
+  };
 
   return (
     <header className='py-3 shadow bg-gray-500'>
@@ -51,12 +56,12 @@ function Header() {
             </Link>
           </div>
           <ul className='flex ml-auto'>
-            {navItems.map((item) => 
+            {navItems.map((item, index) => 
             item.active ? (
               <li key={item.name}>
                 <button
-                onClick={() => navigate(item.slug)}
-                className='inline-bock px-6 py-2 duration-200 hover:bg-blue-100 rounded-full'
+                onClick={() => handleItemClick(item, index)}
+                className={`inline-bock px-6 py-2 duration-200 hover:bg-blue-100 rounded-full ${selectedItem === index ? 'bg-blue-100' : ''}`}
                 >{item.name}</button>
               </li>
             ) : null

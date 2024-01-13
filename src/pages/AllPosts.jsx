@@ -46,8 +46,8 @@ function AllPosts() {
     
   return (
     <div className='w-full py-8'>
-            <div className='flex flex-wrap justify-center items-center'>
-                {posts.map((post) => (
+            <div className='flex flex-wrap justify-center items-center w-full'>
+                {posts.slice().reverse().map((post) => (
                     <div key={post.$id} className='p-2 w-full mx-80'>
                         <PostCard {...post} />
                     </div>
