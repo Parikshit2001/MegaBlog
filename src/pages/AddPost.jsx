@@ -32,16 +32,6 @@ function AddPost() {
   return (
     <div className='py-8'>
       <form onSubmit={(e) => handleSubmit(e)} className='flex flex-wrap'>
-        {/* <label htmlFor="">Title</label>
-        <input type="text" placeholder='Title' value={title} onChange={(e) => setTitle(e.target.value)}/>
-        <br />
-        <label htmlFor="">Content</label>
-        <input type="text" placeholder='Content' value={content} onChange={(e) => setContent(e.target.value)}/>
-        <br />
-        <label htmlFor="">Status</label>
-        <input type="checkbox" checked={status} onChange={() => setStatus(!status)}/>
-        <br />
-        <button type='submit' onClick={handleSubmit}>Submit</button> */}
         <div className='w-2/3 px-2'>
           <Input
             label="Title :"
@@ -55,18 +45,14 @@ function AddPost() {
               id="content"
               name="content"
               rows={10}
-              className="border p-2 w-full"
+              className="border p-2 w-full rounded-xl"
               placeholder="Enter your content here..."
               value={content}
               onChange={(e) => setContent(e.target.value)}
           />
         </div>
         <div className='w-1/3 px-2 py-10'>
-          {/* <select className='w-full my-3 p-5'>
-            <option value="Active" onClick={() => setStatus(true)}>Active</option>
-            <option value="InActive" onClick={() => setStatus(false)}>InActive</option>
-          </select> */}
-          <select className='w-full my-3 p-5' value={status ? 'Active' : 'InActive'} onChange={handleStatusChange}>
+          <select className='w-full my-3 p-5 rounded-xl' value={status ? 'Active' : 'InActive'} onChange={handleStatusChange}>
             <option value="Active">Active</option>
             <option value="InActive">InActive</option>
           </select>
