@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-// import appwriteService from "../../appwrite/config";
 import appwriteService from '../appwrite/config'
-import authService from '../appwrite/auth'
 import { Button, Input, Select } from '../components'
+import { useNavigate } from 'react-router-dom'
 
 
 function AddPost() {
@@ -12,16 +11,24 @@ function AddPost() {
   const [content, setContent] = useState('');
   const [status, setStatus] = useState(true);
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const dbPost = await appwriteService.createPost({
+    appwriteService.createPost({
       title,
       content,
       status,
       email: userData.email
     })
-    setTitle('');
-    setContent('');
+    .then(() => {
+      navigate('/my-posts')
+    })
+    .finally(() => {
+        setContent('');
+        setTitle('');
+      }
+    )
   }
 
   const handleStatusChange = (event) => {

@@ -10,9 +10,11 @@ function PostCard({$id, title, content, status, myPost=false, className}) {
   const [newTitle, setNewTitle] = useState(title);
   const [newContent, setNewContent] = useState(content);
   const [newStatus, setNewStatus] = useState(status);
+  const [deleted, setDeleted] = useState(false);
 
   const handleDelete = ($id) => {
     appwriteService.deletePost($id);
+    setDeleted(true);
   }
 
   const handleEdit = (e) => {
@@ -30,9 +32,9 @@ function PostCard({$id, title, content, status, myPost=false, className}) {
     setNewStatus(selectedStatus === 'Active');
   };
 
-  return (
+  return !deleted && (
     <div className={className}>
-        <div className='w-full bg-gray-100 rounded-xl p-4 flex justify-between'>
+        <div className='w-full bg-red-100 rounded-xl p-4 flex justify-between'>
             <div>
               <h2
               className='text-xl font-bold'
@@ -40,13 +42,13 @@ function PostCard({$id, title, content, status, myPost=false, className}) {
               <p>{newContent}</p>
             </div>
             {myPost && <div className='flex'>
-              <div onClick={() => setEdit(prev => !prev)} className='px-5 flex justify-center items-center hover:bg-slate-500 hover:cursor-pointer rounded-full'>
+              <div onClick={() => setEdit(prev => !prev)} className='px-5 flex justify-center items-center hover:bg-yellow-500 hover:cursor-pointer rounded-full'>
                   <MdOutlineEdit
                     size={30}
                     color='blue'
                   />
                 </div>
-                <div onClick={() => handleDelete($id)} className='px-5 flex justify-center items-center hover:bg-slate-500 hover:cursor-pointer rounded-full'>
+                <div onClick={() => handleDelete($id)} className='px-5 flex justify-center items-center hover:bg-yellow-500 hover:cursor-pointer rounded-full'>
                 <FaTrash
                   size={30}
                   color='maroon'

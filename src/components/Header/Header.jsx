@@ -48,7 +48,7 @@ function Header() {
   };
 
   return (
-    <header className='py-3 shadow bg-gray-500'>
+    <header className='py-3 shadow bg-red-500 text-white'>
         <nav className='flex'>
           <div className='mr-4'>
             <Link to='/'>
@@ -61,7 +61,7 @@ function Header() {
               <li key={item.name}>
                 <button
                 onClick={() => handleItemClick(item, index)}
-                className={`inline-bock px-6 py-2 duration-200 hover:bg-blue-100 rounded-full ${selectedItem === index ? 'bg-blue-100' : ''}`}
+                className={`inline-bock px-6 py-2 duration-200 hover:bg-yellow-500 rounded-full ${selectedItem === index ? 'bg-green-600 hover:bg-green-600' : ''}`}
                 >{item.name}</button>
               </li>
             ) : null

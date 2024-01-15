@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom'
-import { Footer, Header } from './components'
+import { Footer, Header, Loading } from './components'
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import authService from './appwrite/auth';
@@ -23,7 +23,7 @@ function App() {
   }, [])
 
   return !loading? (
-    <div className='min-h-screen flex flex-wrap content-between bg-gray-400'>
+    <div className='min-h-screen flex flex-wrap content-between bg-red-400'>
       <div className='w-full block'>
         <Header />
         <main>
@@ -32,7 +32,7 @@ function App() {
         {/* <Footer /> */}
       </div>
     </div>
-  ) : null
+  ) : <Loading />
 }
 
 export default App

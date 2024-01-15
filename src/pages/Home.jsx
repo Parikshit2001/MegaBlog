@@ -1,4 +1,3 @@
-import { Footer, Header } from '../components'
 
 
 function Home() {
