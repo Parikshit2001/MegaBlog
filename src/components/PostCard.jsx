@@ -34,7 +34,7 @@ function PostCard({$id, title, content, status, myPost=false, className}) {
 
   return !deleted && (
     <div className={className}>
-        <div className='w-full bg-gray-800 rounded-xl p-4 flex justify-between'>
+        <div className='w-full bg-gray-800 rounded-xl p-4 flex justify-between text-white'>
             <div>
               <h2
               className='text-xl font-bold'
