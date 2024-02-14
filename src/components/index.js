@@ -7,7 +7,6 @@ import Input from "./Input";
 import Login from "./Login";
 import AuthLayout from "./AuthLayout";
 import Signup from "./Signup";
-import PostForm from './post-form/PostForm'
 import Select from './Select'
 import PostCard from "./PostCard";
 import Loading from "./Loading";
@@ -21,7 +20,6 @@ export {
     Login,
     AuthLayout,
     Signup,
-    PostForm,
     Select,
     PostCard,
     Loading

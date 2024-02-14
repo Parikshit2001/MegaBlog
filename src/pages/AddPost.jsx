@@ -15,6 +15,7 @@ function AddPost() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(userData.email);
     appwriteService.createPost({
       title,
       content,
@@ -43,7 +44,7 @@ function AddPost() {
           <Input
             label="Title :"
             placeholder="Title"
-            className="mb-4"
+            className="mb-4 bg-slate-600 focus:bg-slate-400"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
@@ -52,14 +53,14 @@ function AddPost() {
               id="content"
               name="content"
               rows={10}
-              className="border p-2 w-full rounded-xl text-black"
+              className="border p-2 w-full rounded-xl text-black bg-slate-600 focus:bg-slate-400"
               placeholder="Enter your content here..."
               value={content}
               onChange={(e) => setContent(e.target.value)}
           />
         </div>
         <div className='w-1/3 px-2 py-10 text-black'>
-          <select className='w-full my-3 p-5 rounded-xl' value={status ? 'Active' : 'InActive'} onChange={handleStatusChange}>
+          <select className='w-full my-3 p-5 rounded-xl bg-slate-600 focus:bg-slate-400' value={status ? 'Active' : 'InActive'} onChange={handleStatusChange}>
             <option value="Active">Active</option>
             <option value="InActive">InActive</option>
           </select>
